@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --mode production",
-    "deploy": "npm run build && cp CNAME dist/CNAME && gh-pages -d dist",
+    "deploy": "npm run build && cp CNAME docs/CNAME && gh-pages -d docs",
     "dev": "webpack serve --mode development --hot"
   },
   "repository": {
@@ -15,9 +15,9 @@
   "author": "Dongho Jang",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/lsdsuos/lsdsuos.github.io.git/issues"
+    "url": "https://github.com/lsdsuos/lsdsuos.github.io/issues"
   },
-  "homepage": "https://github.com/lsdsuos/lsdsuos.github.io.git",
+  "homepage": "https://github.com/lsdsuos/lsdsuos.github.io",
   "devDependencies": {
     "@babel/core": "^7.22.6",
     "@babel/preset-env": "^7.22.6",
