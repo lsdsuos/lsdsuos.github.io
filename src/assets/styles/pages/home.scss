@@ -1,0 +1,171 @@
+section.hero-container {
+  position: relative;
+  width: 100%;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  margin-bottom: 5em;
+  .hero-image {
+    width: 100%;
+    height: 30em;
+    object-fit: cover;
+    filter: brightness(0.4);
+  }
+  .hero-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    .hero-text__main {
+      font-size: 1.7em;
+      margin-bottom: 0.3em;
+    }
+    .hero-text__sub {
+      font-size: 1.5em;
+    }
+    // 모바일 미디어쿼리
+    @media screen and (max-width: 1280px) {
+      bottom: 0;
+      left: 0;
+      transform: translate(0, 0);
+      text-align: left;
+      margin: 2em;
+      .hero-text__main {
+        font-size: 1.5em;
+      }
+    }
+  }
+}
+
+main {
+  max-width: 1156px; /* Set your desired max-width value */
+  margin-left: auto;
+  margin-right: auto;
+  // 모바일 미디어쿼리
+  @media screen and (max-width: 1280px) {
+    margin: 0 2em;
+  }
+
+  section.hero-container__content {
+    font-size: 1.2em;
+    line-height: 1.5;
+    margin-bottom: 5em;
+    p {
+      margin-bottom: 1em;
+      line-height: 2em;
+    }
+    .hero-container__content-item {
+      margin-bottom: 3.5em;
+    }
+  }
+
+  section.news-notice-container {
+    margin-bottom: 5em;
+    // 모바일 미디어쿼리
+    h1.news-notice-title {
+      font-size: 2.5em;
+      margin-bottom: 1em;
+      text-align: center;
+    }
+    .news-container {
+      border-bottom: 1px solid #bababa;
+      .news-item {
+        position: relative;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        border-top: 1px solid #bababa;
+        padding: 1em;
+        cursor: pointer;
+        max-width: 1156px; /* Set your desired max-width value */
+        margin-left: auto;
+        margin-right: auto;
+        @media screen and (max-width: 1280px) {
+          flex-direction: column-reverse;
+          padding: 2em 0;
+        }
+        .news-item__date-container {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin-right: 2em;
+          .news-item__date-d {
+            font-size: 3em;
+            color: $blue-color;
+            @media screen and (max-width: 1280px) {
+              display: none;
+            }
+          }
+          .news-item__date-ym {
+            margin-top: -0.8em;
+            @media screen and (max-width: 1280px) {
+              position: absolute;
+              right: 0;
+              bottom: 0;
+              color: $blue-color;
+            }
+          }
+        }
+        .news-item__content {
+          p.news-item__title {
+            font-size: 1.4em;
+            margin-bottom: 0.3em;
+          }
+          p.news-item__description {
+            color: $grey-color;
+          }
+        }
+        .news-item__icon {
+          color: #3cd08a;
+          font-size: 2.5em;
+          // 모바일 미디어쿼리
+          @media screen and (max-width: 1280px) {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+section.contact-container {
+  position: relative;
+  width: 100%;
+  left: 0;
+  top: 0;
+  width: 100%;
+  color: white;
+  background: linear-gradient(120deg, #004bbf 0%, #1297e5 100%);
+  padding: 5em 0;
+  .contact-content {
+    position: relative;
+    max-width: 1156px; /* Set your desired max-width value */
+    margin-left: auto;
+    margin-right: auto;
+    // 모바일 미디어쿼리
+    @media screen and (max-width: 1280px) {
+      margin: 0 2em;
+    }
+    .contact-title {
+      font-size: 2.5em;
+      margin-bottom: 1em;
+    }
+    .contact-content__description {
+      font-size: 1.2em;
+      margin-bottom: 2.5em;
+    }
+  }
+  .contact-content__button-container {
+    margin-bottom: 7em;
+    .contact-content__button {
+      position: absolute;
+      right: 0;
+      font-size: 1.2em;
+      padding: 1.3em 2.3em;
+      border-radius: 30px;
+      border: 1px solid white;
+    }
+  }
+}

@@ -1,0 +1,21 @@
+extends ../layouts/default.pug
+
+block content
+  //- 상단 이미지
+  include ../mixin/sub_hero.pug
+  +sub_hero('People')
+
+  //- 서브 메뉴
+  include ../mixin/sub_menu.pug
+  +sub_menu([
+    {name: 'Professor', href: './people_professor'}, 
+    {name: 'Members', href: './people_members', isSelected: true},
+    {name: 'Alumni', href: './people_alumni'}])
+  
+  //- 본문
+  main
+    section.members-container
+      h1.title Members
+      include ../mixin/tag.pug
+      +tag(['All', 'Post Docs', 'Graduate Students', 'Undergraduate Students'])
+      .members__list-container

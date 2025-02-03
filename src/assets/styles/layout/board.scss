@@ -1,0 +1,31 @@
+.board__list-container {
+  display: none;
+  margin: 4em 0;
+  .board__list__title {
+    border-top: 5px solid #2d2a56;
+    padding: 0.6em;
+  }
+  .board__list__date {
+    border-top: 1px solid #e6e6e6;
+    font-size: 1em;
+    padding: 0.6em 1em;
+  }
+  .board__list__contents {
+    border-top: 1px solid #e6e6e6;
+    padding: 0.6em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    p {
+      font-size: 1em;
+      line-height: 1.5;
+      margin-top: 1.5em;
+    }
+    img {
+      max-width: 60%;
+      @media screen and (max-width: 768px) {
+        max-width: 100%;
+      }
+    }
+  }
+}

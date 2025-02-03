@@ -1,0 +1,19 @@
+extends ../layouts/default.pug
+
+block content
+  //- 상단 이미지
+  include ../mixin/sub_hero.pug
+  +sub_hero('People')
+
+  //- 서브 메뉴
+  include ../mixin/sub_menu.pug
+  +sub_menu([
+    {name: 'Professor', href: './people_professor'}, 
+    {name: 'Members', href: './people_members'},
+    {name: 'Alumni', href: './people_alumni', isSelected: true}])
+  
+  //- 본문
+  main
+    section.members-container
+      h1.title Alumni
+      .members__list-container

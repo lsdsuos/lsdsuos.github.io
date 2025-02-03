@@ -1,0 +1,60 @@
+nav.navbar
+  .navbar__logo-container
+    img.navbar__logo(src="./images/logo(white).png" alt="서울시립대학교ㅛ 로고")
+    a(href="./")
+      .navbar__logo-text
+        .navbar__logo-text--main.font-bold 공간데이터과학 연구실
+        .navbar__logo-text--mobile.font-bold LSDS
+        .navbar__logo-text--sub.font-bold The Lab for Spatial Data Science at UOS.
+  ul.navbar__list.font-bold
+    li.navbar__item
+      a.navbar__link(href="./") Home
+    li.navbar__item
+      a.navbar__link(href="./people_professor") People
+      ul.navbar__sub-menu-container
+        li.navbar__sub-item 
+          a.navbar__sub-link(href="./people_professor") Professor
+        li.navbar__sub-item 
+          a.navbar__sub-link(href="./people_members") Members
+        li.navbar__sub-item
+          a.navbar__sub-link(href="./people_alumni") Alumni
+    li.navbar__item
+      a.navbar__link(href="./research") Research
+    li.navbar__item
+      a.navbar__link(href="./publication_international_journal") Publication
+      ul.navbar__sub-menu-container
+        li.navbar__sub-item 
+          a.navbar__sub-link(href="./publication_international_journal") International Journal
+        li.navbar__sub-item 
+          a.navbar__sub-link(href="./publication_patent") Patent
+        li.navbar__sub-item 
+          a.navbar__sub-link(href="./publication_book") Book
+    li.navbar__item
+      a.navbar__link(href="./lab_facilities") Lab Facilities
+    li.navbar__item
+      a.navbar__link(href="./gallery") Gallery
+    li.navbar__item
+      a.navbar__link(href="./contact") Contact
+  //- 모바일 메뉴버튼
+  i.fa-solid.fa-bars.navbar__menu-icon--bars
+  
+  //- 모바일 메뉴
+  div.black-bg
+  ul.navbar__mobile-menu
+    //- 닫기 아이콘
+    .navbar__mobile-menu-close-icon
+      i.fa-solid.fa-times.navbar__mobile-menu-close-icon
+    li.navbar__mobile-item
+      a.navbar__link(href="./") Home
+    li.navbar__mobile-item
+      a.navbar__link(href="./people_professor") People
+    li.navbar__mobile-item
+      a.navbar__link(href="./research") Research
+    li.navbar__mobile-item
+      a.navbar__link(href="./publication_international_journal") Publication
+    li.navbar__mobile-item
+      a.navbar__link(href="./lab_facilities") Lab Facilities
+    li.navbar__mobile-item
+      a.navbar__link(href="./gallery") Gallery
+    li.navbar__mobile-item
+      a.navbar__link(href="./contact") Contact

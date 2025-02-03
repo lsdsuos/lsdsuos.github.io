@@ -1,0 +1,12 @@
+extends ../layouts/default.pug
+
+block content
+  //- 상단 이미지
+  include ../mixin/sub_hero.pug
+  +sub_hero('Lab Facilities')
+
+  //- 본문
+  main
+    section.lab_facilities-container
+      h1.title Lab Facilities
+      .lab_facilities__list-container

@@ -1,0 +1,90 @@
+section.professor-container {
+  .title {
+    margin-bottom: 2em;
+  }
+  .professor-profile {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 5em;
+    @media screen and (max-width: 1280px) {
+      flex-direction: column-reverse;
+      gap: 3em;
+    }
+    .professor__image {
+      @media screen and (max-width: 1280px) {
+        width: 100%;
+        margin: 0 auto;
+        max-width: 200px;
+      }
+    }
+    .professor__text {
+      margin-bottom: 10em;
+      @media screen and (max-width: 1280px) {
+        margin-bottom: 0;
+      }
+      .professor__text__rank {
+        color: $blue-color;
+        font-size: 1.1em;
+      }
+      .professor__text__name {
+        font-size: 2.2em;
+        margin-bottom: 0.3em;
+      }
+      .professor__text__department {
+        font-size: 1em;
+        margin-bottom: 2em;
+      }
+      .professor__text__contact-container {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5em;
+        i {
+          margin-right: 1em;
+        }
+      }
+    }
+  }
+  .professor-description-container {
+    display: flex;
+    flex-direction: column;
+    padding: 2em 0;
+    margin-bottom: 2em;
+    @media screen and (max-width: 1280px) {
+      padding: 0;
+    }
+    .professor-description-title {
+      border-top: 1px solid #bababa;
+      width: 100%;
+      text-align: center;
+      padding-top: 1em;
+      @media screen and (max-width: 1280px) {
+        text-align: left;
+      }
+    }
+    .professor-description-content {
+      ul.professor-description-content-list {
+        padding-left: 10em;
+        line-height: 1.7em;
+        @media screen and (max-width: 1280px) {
+          padding: 0;
+        }
+        li.professor-description-content-item {
+          display: flex;
+          padding: 0.3em 0;
+          @media screen and (max-width: 1280px) {
+            flex-direction: column;
+          }
+          .professor-description-content-item__year {
+            display: inline-block;
+            width: 15em;
+          }
+          .professor-description-content-item__content {
+            color: #676479;
+          }
+        }
+      }
+    }
+  }
+}

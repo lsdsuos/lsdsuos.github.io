@@ -1,0 +1,27 @@
+// Variables
+@import "variables/fonts";
+@import "variables/colors";
+
+// Base styles
+@import "base/reset";
+
+// Components
+
+// Layout
+@import "layout/header";
+@import "layout/footer";
+@import "layout/sub_hero";
+@import "layout/sub_menu";
+@import "layout/tag";
+@import "layout/board";
+
+// Pages
+@import "pages/home";
+@import "pages/people_professor";
+@import "pages/people_members";
+@import "pages/people_alumni";
+@import "pages/research";
+@import "pages/publication";
+@import "pages/contact";
+@import "pages/lab_facilities";
+@import "pages/gallery";

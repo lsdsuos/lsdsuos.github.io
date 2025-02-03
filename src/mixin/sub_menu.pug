@@ -1,0 +1,8 @@
+mixin sub_menu(menus = {})
+  .sub-menu-container
+    .sub-menu
+      each menu in menus
+        if menu.isSelected
+          a.sub-menu__item.font-bold.selected(href=menu.href)= menu.name
+        else
+          a.sub-menu__item(href=menu.href)= menu.name

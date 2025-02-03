@@ -1,0 +1,34 @@
+section.research-container {
+  padding: 3em 0;
+  .research__list-container {
+    margin-top: 3em;
+    .title {
+      text-align: center;
+      margin-bottom: 1.5em;
+    }
+    ul.research__list-objectives {
+      margin-bottom: 1.5em;
+      border: 1px solid #bababa;
+      color: #676479;
+      list-style-type: disc;
+      padding: 2em 4em;
+      li {
+        margin-bottom: 1em;
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+    .research__list-image-container {
+      margin-bottom: 1em;
+      img {
+        width: 100%;
+      }
+    }
+    .research__list-description-container {
+      p.research__list-description {
+        text-align: right;
+      }
+    }
+  }
+}

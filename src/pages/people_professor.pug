@@ -1,0 +1,158 @@
+extends ../layouts/default.pug
+
+block content
+  //- 상단 이미지
+  include ../mixin/sub_hero.pug
+  +sub_hero('People')
+
+  //- 서브 메뉴
+  include ../mixin/sub_menu.pug
+  +sub_menu([
+    {name: 'Professor', href: './people_professor', isSelected: true}, 
+    {name: 'Members', href: './people_members'},
+    {name: 'Alumni', href: './people_alumni'}])
+  
+  //- 본문
+  main
+    section.professor-container
+      h1.title Professor
+      .professor-profile
+        .professor__text
+          .professor__text__rank.font-bold Professor
+          .professor__text__name.font-bold Hyeongmo Koo
+          .professor__text__department
+            p.font-light
+              | The Department of Geoinformatics, University of Seoul
+          .professor__text__contact-container
+            .professor__text__phone
+                i.fa-solid.fa-phone
+                span 02-6490-2885
+            .professor__text__email
+                i.fa-solid.fa-envelope
+                span hmokoo@uos.ac.kr
+            .professor__text__address
+                i.fa-sharp.fa-solid.fa-location-dot
+                span Room 516, 21 Centry  Hall, 163 Seoulsiripdaero, Dongdaemun-gu, Seoul
+        img.professor__image(src="./images/professor.png", alt="교수 이미지")
+
+
+      //- ////////////////////////////////////////////////////////////////
+      //- EDUCATION
+      //- ////////////////////////////////////////////////////////////////
+      .professor-description-container
+        .professor-description-title
+          h3.title Education
+        .professor-description-content
+          ul.professor-description-content-list
+
+            li.professor-description-content-item
+              span.professor-description-content-item__year.font-bold 2018
+              p.professor-description-content-item__content
+                |  Ph.D. Geospatial Information Sciences, School of Economic <br>
+                | Political and Policy Sciences, The University of Texas at Dallas. <br>
+                | (Dissertation: Visualizing and Modeling Spatial DataUncertainty) <br>
+                | https://utd-ir.tdl.org/handle/10735.1/6593
+            li.professor-description-content-item
+              span.professor-description-content-item__year.font-bold 2010
+              p.professor-description-content-item__content
+                | M.S. Department of Geography Education <br>
+                | Seoul National University, Seoul, Korea. <br>
+                | (Thesis: Delineating Spatially Constrained Commuting Zones with <br> 
+                | an Improved Measurement for Functional Regionalization) <br>
+                | http://s-space.snu.ac.kr/handle/10371/64545
+            li.professor-description-content-item
+              span.professor-description-content-item__year.font-bold 2005
+              p.professor-description-content-item__content
+                | B.S. Department of Geography Education, Seoul National University, Seoul, Korea. <br>
+              
+              
+                
+
+
+
+      //- ////////////////////////////////////////////////////////////////
+      //- EMPLOYMENT
+      //- ////////////////////////////////////////////////////////////////
+      .professor-description-container
+        .professor-description-title
+          h3.title EMPLOYMENT
+        .professor-description-content
+          ul.professor-description-content-list
+
+            li.professor-description-content-item
+              span.professor-description-content-item__year.font-bold 2021 ~ Present
+              p.professor-description-content-item__content 
+                | Assistant Professor <br>
+                | The Department of Geoinformatics, College of Urban Science, University of Seoul.
+            li.professor-description-content-item
+              span.professor-description-content-item__year.font-bold 2020 ~ 2021
+              p.professor-description-content-item__content
+                | Research Associate <br>
+                | Korea Center for City and Environment Research, Seoul, Korea.
+            li.professor-description-content-item
+              span.professor-description-content-item__year.font-bold 2018 ~ 2020
+              p.professor-description-content-item__content
+                | Postdoctoral Research Associate <br>
+                | the Key Laboratory of Virtual Geographic Environment, School of Geography <br>
+                | Nanjing Normal University, China.
+            li.professor-description-content-item
+              span.professor-description-content-item__year.font-bold 2014 ~ 2018
+              p.professor-description-content-item__content
+                | Research and Teaching Assistant <br>
+                | School of Economic, Political and Policy Sciences, The University of Texas at Dallas.
+            li.professor-description-content-item
+              span.professor-description-content-item__year.font-bold 2011 ~ 2012
+              p.professor-description-content-item__content
+                | Research Assistant <br>
+                | Statistical Research Institute, National Statistics Office, Daejeon, Korea.
+
+      //- ////////////////////////////////////////////////////////////////
+      //- RESEARCH GRANT
+      //- ////////////////////////////////////////////////////////////////
+      .professor-description-container
+        .professor-description-title
+          h3.title RESEARCH GRANT
+        .professor-description-content
+          ul.professor-description-content-list
+
+            li.professor-description-content-item
+              span.professor-description-content-item__year.font-bold 2022 ~ 2025
+              p.professor-description-content-item__content 
+                | National Research Foundation of Korea (NRF) / Developing machine learning methods incorporating spatial data properties / (2022R1C1C1007360). <br>
+
+      
+      //- ////////////////////////////////////////////////////////////////
+      //- RESEARCH INTERESTS
+      //- ////////////////////////////////////////////////////////////////
+      .professor-description-container
+        .professor-description-title
+          h3.title RESEARCH INTERESTS
+        .professor-description-content
+          ul.professor-description-content-list
+            li.professor-description-content-item
+              p.professor-description-content-item__content 
+                | GIS, spatial statistics and machine learning, spatial data uncertainty, geovisualization, and issues related to urban geography including environment, housing, population migration, and crime.
+      
+      
+      
+      
+      //- ////////////////////////////////////////////////////////////////
+      //- TEACHING EXPERIENCES
+      //- ////////////////////////////////////////////////////////////////
+      .professor-description-container
+        .professor-description-title
+          h3.title TEACHING EXPERIENCES
+        .professor-description-content
+          ul.professor-description-content-list
+
+            li.professor-description-content-item
+              span.professor-description-content-item__year.font-bold 20??~ 
+              p.professor-description-content-item__content 
+                | The Department of Geoinformatics, College of Urban Science, University of Seoul. <br>
+                | Digital Cartography, Fundamentals of Geospatial Information Sciences, Fundamentals of Spatial Analysis, Advanced Spatial Data Analysis, Machine Learning for Spatial Data, Spatial Big Data Mining, 
+
+            li.professor-description-content-item
+              span.professor-description-content-item__year.font-bold  20?? ~ 
+              p.professor-description-content-item__content 
+                | School of Economic, Political and Policy Sciences, The University of Texas at Dallas.School of Economic, Political and Policy Sciences, The University of Texas at Dallas. <br>
+                | GISC 4326: Cartography and Geovisualization (Fall 2017)

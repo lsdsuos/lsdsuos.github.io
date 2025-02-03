@@ -1,0 +1,40 @@
+{
+  "name": "lsds-web",
+  "version": "1.0.0",
+  "description": "공간데이터과학 연구실 홈페이지 개발",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --mode production",
+    "deploy": "npm run build && cp CNAME dist/CNAME && gh-pages -d dist",
+    "dev": "webpack serve --mode development --hot"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lsdsuos/lsdsuos.github.io.git"
+  },
+  "author": "Dongho Jang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lsdsuos/lsdsuos.github.io.git/issues"
+  },
+  "homepage": "https://github.com/lsdsuos/lsdsuos.github.io.git",
+  "devDependencies": {
+    "@babel/core": "^7.22.6",
+    "@babel/preset-env": "^7.22.6",
+    "babel-loader": "^9.1.2",
+    "css-loader": "^6.8.1",
+    "gh-pages": "^5.0.0",
+    "html-webpack-plugin": "^5.5.3",
+    "imagemin-webpack-plugin": "^2.4.2",
+    "mini-css-extract-plugin": "^2.7.6",
+    "pug": "^2.0.4",
+    "pug-loader": "^2.4.0",
+    "sass": "^1.63.6",
+    "sass-loader": "^13.3.2",
+    "style-loader": "^3.3.3",
+    "webpack": "^5.88.1",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1",
+    "webpack-livereload-plugin": "^3.0.2"
+  }
+}

@@ -1,0 +1,83 @@
+.members-container {
+  width: 100%;
+  .title {
+    margin-bottom: 1em;
+  }
+  .members__list-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 5em;
+    max-width: 1200px;
+    @media screen and (max-width: 1280px) {
+      flex-direction: column;
+    }
+    .members__list {
+      border: 1px solid $lightgrey-color;
+      padding: 2em;
+      width: 48%;
+      margin-right: 2%;
+      margin-bottom: 2%;
+      transition: all 0.3s;
+      &:hover {
+        border-color: $blue-color; /* Change the border color on hover */
+        transform: translateY(-5px); /* Move the list item upward by 5px on hover */
+      }
+      @media screen and (max-width: 1280px) {
+        width: 100%;
+      }
+      .members__list__content {
+        display: flex;
+        gap: 2em;
+        @media screen and (max-width: 1280px) {
+          flex-direction: column;
+        }
+        .members__list__content__image-container {
+          flex-shrink: 0;
+          max-width: 134px;
+          max-height: 188px;
+          @media screen and (max-width: 1280px) {
+            margin: 0 auto;
+          }
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+        .members__list__content__text-container {
+          @media screen and (max-width: 1280px) {
+            text-align: center;
+          }
+          .members__list__content__text-container__rank {
+            font-size: 1em;
+            margin-bottom: -0.3em;
+            color: $blue-color;
+          }
+          .members__list__content__text-container__name {
+            font-size: 1.7em;
+            margin-bottom: 0.5em;
+          }
+          .members__list__content__text-container__topic-container {
+            margin-bottom: 1em;
+            p {
+              font-size: 1.1em;
+              margin-bottom: 0.1em;
+            }
+            span {
+              color: #676479;
+            }
+          }
+        }
+        .members__list__content__text-container__contact-container {
+          i {
+            margin-right: 0.6em;
+          }
+          span {
+            color: #676479;
+          }
+        }
+      }
+    }
+  }
+}
