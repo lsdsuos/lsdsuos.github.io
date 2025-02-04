@@ -39,20 +39,35 @@ const createPublicationContainer = (yearRange) => {
 const drawPublications = (data) => {
   const publicationContainer = document.querySelector(".publication-container");
 
-  const yearRanges = {
-    "2020~": [],
-    "~2019": [],
-  };
+  // const yearRanges = {
+  //   "2025": [],
+  //   "2024": [],
+  // };
+
+  // // 데이터를 년도 범위에 따라 분류
+  // data.forEach((item) => {
+  //   let { Date } = item;
+  //   Date = parseInt(Date.split("-")[0]);
+
+  //   if (Date >= 2025) {
+  //     yearRanges["2025"].push(item);
+  //   } else {
+  //     yearRanges["2024"].push(item);
+  //   }
+  // });
+
+  const yearRanges = {};
+  for (let year = 2021; year <= 2030; year++) {
+    yearRanges[year] = [];
+  }
 
   // 데이터를 년도 범위에 따라 분류
   data.forEach((item) => {
     let { Date } = item;
-    Date = parseInt(Date.split("-")[0]);
+    Date = parseInt(Date.split("-")[0]); // "YYYY-MM-DD" → YYYY 추출
 
-    if (Date >= 2020) {
-      yearRanges["2020~"].push(item);
-    } else {
-      yearRanges["~2019"].push(item);
+    if (yearRanges.hasOwnProperty(Date)) {
+      yearRanges[Date].push(item);
     }
   });
 
