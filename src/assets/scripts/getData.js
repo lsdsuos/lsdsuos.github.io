@@ -1,24 +1,49 @@
-export const getExcelData = (sheetName, callback) => {
-  const xhr = new XMLHttpRequest();
-
-  // 🔥 Cloudflare Worker URL을 사용하여 API 요청
-  const url = `https://little-firefly-f09.dongbum80.workers.dev/${sheetName}`;
-  xhr.open("GET", url, true);
-
-  xhr.onload = function () {
-    if (xhr.status === 200) {
-      var response = xhr.responseText;
-      const result = convertToKeyValue(JSON.parse(response));
-      callback(result);
+export const getExcelData = async (sheetName, callback) => {
+  try {
+    if (!navigator.onLine) {
+      console.error("❌ 인터넷 연결 없음");
+      return;
     }
-  };
+    
+    // 🔥 Cloudflare Worker URL을 사용하여 API 요청
+    // ✅ API 요청 URL (Cloudflare Workers)
+    // const url = `https://little-firefly-f09.dongbum80.workers.dev/${sheetName}`;
+    
+    // 🔥 Cloudflare Pages URL을 사용하여 API 요청
+    // ✅ API 요청 URL (Cloudflare Pages 에서 Cloudflare worker를 호출하게 됨)
+    const url = `https://cloudflare-proxy-deo.pages.dev/api/${sheetName}`;
+    
+    console.log(`🚀 요청 URL: ${url}`);
 
-  xhr.onerror = function () {
-    console.error("요청 실패");
-  };
+    // ✅ fetch()를 사용하여 요청
+    const response = await fetch(url, {
+      method: "GET",
+      headers: {
+        "Accept": "application/json"
+      }
+    });
 
-  xhr.send();
+    console.log("🔍 응답 상태 코드:", response.status);
+
+    if (!response.ok) {
+      console.error(`❌ API 요청 실패 - 상태 코드: ${response.status}`);
+      const errorText = await response.text();
+      console.error(`❌ 오류 메시지: ${errorText}`);
+      return;
+    }
+
+    const data = await response.json();
+    console.log("✅ API 응답 데이터:", data);
+
+    // ✅ 데이터 변환 후 콜백 실행
+    const result = convertToKeyValue(data);
+    callback(result);
+
+  } catch (error) {
+    console.error("❌ 네트워크 요청 중 오류 발생:", error);
+  }
 };
+
 
 const convertToKeyValue = (data) => {
   const keys = data.values[0];
