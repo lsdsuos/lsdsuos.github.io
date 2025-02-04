@@ -11,7 +11,7 @@ The Lab for Spatial Data Science at UOS
 
 ## **2. 시스템 아키텍처**
 <p align="center">
-    <img src="https://github.com/user-attachments/assets/2321df2f-2ecc-4d48-ae93-45f12b5dd7ad">
+    <img src="https://github.com/user-attachments/assets/51e170c4-ae10-48b4-8a39-7f016aee9a3b">
 </p>
 
 - Google Sheets를 직접 호출하지 않고, **Cloudflare Workers 기반의 API Proxy** 를 통해 데이터를 호출함.
@@ -28,6 +28,7 @@ The Lab for Spatial Data Science at UOS
 ### **Backend / Database**
 - Google Sheets (데이터 저장소)
 - Cloudflare Workers (API 프록시)
+- Cloudflare Pages (내부망 우회 API 프록시 - Workers로 redirects용)
 - Google Drive (이미지 저장소)
 
 ### **Deployment**
