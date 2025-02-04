@@ -25,18 +25,37 @@ const createPublicationContainer = (yearRange) => {
 const drawPublications = (data) => {
   const publicationContainer = document.querySelector(".publication-container");
 
-  const yearRanges = {
-    "2020~": [],
-  };
+  // const yearRanges = {
+  //   "2020~": [],
+  // };
+
+  // // 데이터를 년도 범위에 따라 분류
+  // data.forEach((item) => {
+  //   const { Year } = item;
+
+  //   if (Year >= 2020) {
+  //     yearRanges["2020~"].push(item);
+  //   }
+  // });
+
+  ////
+  const yearRanges = {};
+  for (let year = 2021; year <= 2030; year++) {
+    yearRanges[year] = [];
+  }
+
 
   // 데이터를 년도 범위에 따라 분류
   data.forEach((item) => {
-    const { Year } = item;
+    let { Year } = item;
+    Year = parseInt(Year); // YYYY
 
-    if (Year >= 2020) {
-      yearRanges["2020~"].push(item);
+    if (yearRanges.hasOwnProperty(Year)) {
+      yearRanges[Year].push(item);
     }
   });
+  //
+  
 
   Object.entries(yearRanges).forEach(([yearRange, items]) => {
     const yearContainer = createPublicationContainer(yearRange);
