@@ -10,7 +10,9 @@ The Lab for Spatial Data Science at UOS
 - **Github 링크:** [GitHub Repository](https://github.com/lsdsuos/lsdsuos.github.io)
 
 ## **2. 시스템 아키텍처**
-- https://github.com/user-attachments/assets/2321df2f-2ecc-4d48-ae93-45f12b5dd7ad
+<p align="center">
+    <img src="https://github.com/user-attachments/assets/2321df2f-2ecc-4d48-ae93-45f12b5dd7ad">
+</p>
 - Google Sheets를 직접 호출하지 않고, **Cloudflare Workers 기반의 API Proxy**를 통해 데이터를 호출함.
 - Cloudflare에서 **환경 변수**로 Google Sheets ID 및 API Key를 관리.
 - Cloudflare가 Google Sheets API를 호출하여 데이터를 변환 후 반환.
