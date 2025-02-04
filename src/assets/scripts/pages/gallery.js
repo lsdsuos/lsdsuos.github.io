@@ -1,4 +1,4 @@
-import { getExcelData } from "../getData";
+import { getExcelData, fetchDriveImageWithRetry } from "../getData";
 const sheetName = "Gallery";
 
 const params = new URLSearchParams(window.location.search);
@@ -18,9 +18,13 @@ const drawGallerys = (gallery) => {
   const imageContainer = document.createElement("div");
   imageContainer.classList.add("gallery__list__image");
   const image = document.createElement("img");
-  image.src = ImageID[0]
-    ? `https://drive.google.com/thumbnail?id=${ImageID[0]}&sz=w1048`
-    : "./images/empty.png";
+  // image.src = ImageID[0]
+  //   ? `https://drive.google.com/thumbnail?id=${ImageID[0]}&sz=w1048`
+  //   : "./images/empty.png";
+
+  // 🔥 지수 백오프 적용 (이미지 로드 실패 시 자동 재시도)
+  fetchDriveImageWithRetry(image, ImageID[0]);
+
   image.alt = Title;
 
   const infoContainer = document.createElement("div");

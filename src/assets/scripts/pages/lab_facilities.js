@@ -1,4 +1,4 @@
-import { getExcelData } from "../getData";
+import { getExcelData, fetchDriveImageWithRetry } from "../getData";
 
 const drawLabFacilities = (facilities) => {
   const listContainer = document.querySelector(
@@ -19,10 +19,13 @@ const drawLabFacilities = (facilities) => {
 
     const image = document.createElement("img");
     image.classList.add("lab_facilities__list__content__image");
-    const imageUrl = facility.ImageID
-      ? `https://drive.google.com/thumbnail?id=${facility.ImageID}`
-      : "./images/empty.png";
-    image.src = imageUrl;
+    // const imageUrl = facility.ImageID
+    //   ? `https://drive.google.com/thumbnail?id=${facility.ImageID}`
+    //   : "./images/empty.png";
+    // image.src = imageUrl;
+
+    // 🔥 지수 백오프 적용 (이미지 로드 실패 시 자동 재시도)
+    fetchDriveImageWithRetry(image, facility.ImageID);
     image.alt = facility.Name;
 
     imageContainer.appendChild(image);

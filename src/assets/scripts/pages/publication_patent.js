@@ -1,4 +1,4 @@
-import { getExcelData } from "../getData";
+import { getExcelData, fetchDriveImageWithRetry } from "../getData";
 
 const abbreviateNames = (names) => {
   const namesArr = names.split(", ");
@@ -73,10 +73,13 @@ const drawPublications = (data) => {
 
       const imageElement = document.createElement("img");
       imageElement.classList.add("publication__list-image");
-      const imageUrl = ImageID
-        ? `https://drive.google.com/thumbnail?id=${ImageID}`
-        : "./images/empty.png";
-      imageElement.src = imageUrl;
+      // const imageUrl = ImageID
+      //   ? `https://drive.google.com/thumbnail?id=${ImageID}`
+      //   : "./images/empty.png";
+      // imageElement.src = imageUrl;
+
+      // 🔥 지수 백오프 적용 (이미지 로드 실패 시 자동 재시도)
+      fetchDriveImageWithRetry(imageElement, ImageID);
 
       const content = document.createElement("div");
       content.classList.add("publication__list-content");
