@@ -9,7 +9,7 @@ const abbreviateNames = (names, highlight) => {
     const lastName = parts[0];
     const abbreviatedName = `${firstName.join(". ")}. ${lastName}`;
 
-    if (highlight === "y" && abbreviatedName === "D. Kim") {
+    if (highlight === "y" && abbreviatedName === "H. Koo") {
       const highlightedName = `<u>${abbreviatedName}</u><sup>*</sup>`;
       return highlightedName;
     } else {
