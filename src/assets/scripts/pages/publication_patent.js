@@ -57,7 +57,7 @@ const drawPublications = (data) => {
   // });
 
   const yearRanges = {};
-  for (let year = 2021; year <= 2030; year++) {
+  for (let year = 2030; year >= 2020; year--) {
     yearRanges[year] = [];
   }
 
@@ -71,7 +71,7 @@ const drawPublications = (data) => {
     }
   });
 
-  Object.entries(yearRanges).forEach(([yearRange, items]) => {
+  Object.entries(yearRanges).reverse().forEach(([yearRange, items]) => {
     const yearContainer = createPublicationContainer(yearRange);
     publicationContainer.appendChild(yearContainer);
 
