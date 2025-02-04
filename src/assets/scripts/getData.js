@@ -1,8 +1,8 @@
 export const getExcelData = (sheetName, callback) => {
   const xhr = new XMLHttpRequest();
-  const sheetId = "11EYVT5etV3ezoNS_gE8EL-rhHKrnlfUYm9WHDLL0NT8";
-  const apiKey = "AIzaSyAoTej9n7Owubby3AiquV5QaXFyips1S3c";
-  const url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${sheetName}?key=${apiKey}`;
+  
+  // 🔥 Cloudflare Worker URL을 사용하여 API 요청
+  const url = `https://little-firefly-f09.dongbum80.workers.dev/${sheetName}`;
   xhr.open("GET", url, true);
 
   xhr.onload = function () {
