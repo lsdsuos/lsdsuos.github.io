@@ -46,21 +46,21 @@ const drawPublications = (data) => {
   const publicationContainer = document.querySelector(".publication-container");
 
   const yearRanges = {
-    "2020~": [],
-    "2004~2019": [],
-    "1999~2003": [],
+    "2026~": [],
+    "2021~2025": [],
+    "2010~2020": [],
   };
 
   // 데이터를 년도 범위에 따라 분류
   data.forEach((item) => {
     const { Year } = item;
 
-    if (Year >= 2020) {
-      yearRanges["2020~"].push(item);
-    } else if (Year >= 2004) {
-      yearRanges["2004~2019"].push(item);
+    if (Year >= 2026) {
+      yearRanges["2026~"].push(item);
+    } else if (Year >= 2021) {
+      yearRanges["2021~2025"].push(item);
     } else {
-      yearRanges["1999~2003"].push(item);
+      yearRanges["2010~2020"].push(item);
     }
   });
 
