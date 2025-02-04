@@ -18,7 +18,7 @@ module.exports = {
     notice: "./src/notice.js",
   },
   output: {
-    path: path.resolve(__dirname, "docs"),
+    path: path.resolve(__dirname, "dist"),
     filename: "[name].js",
   },
   module: {
@@ -119,7 +119,7 @@ module.exports = {
   ],
   devServer: {
     static: {
-      directory: path.join(__dirname, "docs"),
+      directory: path.join(__dirname, "dist"),
     }, // 정적 파일 제공
     compress: true, // gzip 압축 사용 여부
     port: 3000, // 개발 서버 포트
