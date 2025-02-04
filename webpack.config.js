@@ -3,6 +3,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ImageminPlugin = require("imagemin-webpack-plugin").default;
 const LiveReloadPlugin = require("webpack-livereload-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   entry: {
@@ -35,7 +36,7 @@ module.exports = {
       },
       // Images
       {
-        test: /\.(png|jpg|jpeg|gif|svg)$/,
+        test: /\.(png|jpg|jpeg|gif|svg|ico)$/,
         type: "asset/resource",
         generator: {
           filename: "images/[name][ext]",
@@ -115,6 +116,12 @@ module.exports = {
     }),
     new LiveReloadPlugin({
       appendScriptTag: true,
+    }),
+    // `public/` 폴더 복사해서 `dist/`에 넣기
+    new CopyWebpackPlugin({
+      patterns: [
+        { from: "public", to: "" }, // `public/`의 모든 파일을 `dist/`로 복사
+      ],
     }),
   ],
   devServer: {
