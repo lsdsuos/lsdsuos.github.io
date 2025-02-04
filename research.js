@@ -451,7 +451,7 @@ eval("module.exports = __webpack_require__.p + \"images/research_3.png\";\n\n//#
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("0148f66d8bbf684f7c9e")
+/******/ 		__webpack_require__.h = () => ("c7dc486fdf1e9c7dedee")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/global */
