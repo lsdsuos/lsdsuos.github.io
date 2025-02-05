@@ -72,7 +72,7 @@ const drawPublications = (data) => {
 
     // 아이템별로 리스트 생성
     items.forEach((item) => {
-      let { Authors, Title, Publication, Volume, Pages, Year, Highlight } = item;
+      let { Authors, Title, Publication, Volume, Pages, Year, Highlight, paper_URL } = item;
       Authors = abbreviateNames(Authors, Highlight);
 
       const listItem = document.createElement("div");
@@ -81,9 +81,25 @@ const drawPublications = (data) => {
       const content = document.createElement("div");
       content.classList.add("publication__list-content");
 
+      // const titleElement = document.createElement("h4");
+      // titleElement.classList.add("title");
+      // titleElement.innerHTML = `${Title}`;
+      // 🔥 논문 제목 (하이퍼링크 추가, h4 유지)
       const titleElement = document.createElement("h4");
       titleElement.classList.add("title");
-      titleElement.innerHTML = `${Title}`;
+
+      if (paper_URL) {
+        const linkElement = document.createElement("a");
+        linkElement.href = paper_URL;
+        linkElement.target = "_blank"; // 새 창에서 열기
+        linkElement.rel = "noopener noreferrer"; // 보안상 추천
+        linkElement.innerHTML = Title;
+        linkElement.style.textDecoration = "underline"; // 기본 밑줄 추가
+        linkElement.style.color = "inherit"; // 기존 h4 색상 유지
+        titleElement.appendChild(linkElement);
+      } else {
+        titleElement.innerHTML = Title;
+      }
 
       const descriptionElement = document.createElement("p");
       descriptionElement.classList.add("description");
