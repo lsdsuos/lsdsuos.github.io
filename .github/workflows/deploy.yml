@@ -16,9 +16,23 @@ jobs:
         run: |
           echo "REACT_APP_SHEETS_ID=${{ secrets.SHEETS_ID }}" > .env
           echo "REACT_APP_SHEETS_API_KEY=${{ secrets.SHEETS_API_KEY }}" >> .env
+          echo "✅ .env 파일 생성 완료!"
+          ls -la  # 현재 디렉토리에 파일이 정상적으로 존재하는지 확인
+          cat .env  # .env 내용 확인 (보안상 GitHub에서는 ***로 표시됨)
+
+      - name: 🚨 Check if .env exists
+        run: |
+          if [ ! -f .env ]; then
+            echo "❌ .env 파일이 생성되지 않았습니다. 스크립트를 종료합니다."
+            exit 1
+          else
+            echo "✅ .env 파일이 정상적으로 생성되었습니다."
+          fi
 
       - name: 🗂 Save .env as Artifact (Downloadable)
         uses: actions/upload-artifact@v4
         with:
           name: env-file
-          path: .env
+          path: ./  # 🔥 현재 디렉토리에서 `.env` 파일을 찾음
+          if-no-files-found: warn  # ❗ 파일이 없으면 경고 출력
+          include-hidd
