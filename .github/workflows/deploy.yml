@@ -35,4 +35,4 @@ jobs:
           name: env-file
           path: ./  # 🔥 현재 디렉토리에서 `.env` 파일을 찾음
           if-no-files-found: warn  # ❗ 파일이 없으면 경고 출력
-          include-hidd
+          include-hidden-files: true  # 🔥 숨김 파일도 포함
