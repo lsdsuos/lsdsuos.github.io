@@ -1,0 +1,27 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # main 브랜치에 Push할 때 실행됨
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: ✅ Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: 🔑 Create .env File
+        run: |
+          echo "REACT_APP_SHEETS_ID=${{ secrets.SHEETS_ID }}" > .env
+          echo "REACT_APP_SHEETS_API_KEY=${{ secrets.SHEETS_API_KEY }}" >> .env
+
+      - name: ⚙️ Install Dependencies
+        run: npm install
+
+      - name: 🛠 Build Project
+        run: npm run build
+
+      - name: 🚀 Deploy to GitHub Pages
+        run: npm run deploy  # gh-pages 브랜치에 dist 폴더를 배포

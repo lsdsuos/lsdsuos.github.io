@@ -1,18 +1,23 @@
+import { API_KEY, SHEET_ID } from '../../config.js'
+
 export const getExcelData = async (sheetName, callback) => {
   try {
     if (!navigator.onLine) {
       console.error("❌ 인터넷 연결 없음");
       return;
     }
-    
+    console.log("API_KEY, SHEET_ID")
+    console.log(API_KEY, SHEET_ID)
+    console.log("==================")
+
     // 🔥 Cloudflare Worker URL을 사용하여 API 요청
     // ✅ API 요청 URL (Cloudflare Workers)
     // const url = `https://little-firefly-f09.dongbum80.workers.dev/${sheetName}`;
-    
+
     // 🔥 Cloudflare Pages URL을 사용하여 API 요청
     // ✅ API 요청 URL (Cloudflare Pages 에서 Cloudflare worker를 호출하게 됨)
     const url = `https://cloudflare-proxy-deo.pages.dev/api/${sheetName}`;
-    
+
     console.log(`🚀 요청 URL: ${url}`);
 
     // ✅ fetch()를 사용하여 요청
@@ -83,10 +88,10 @@ export function fetchDriveImageWithRetry(imageElement, imageID, size = "w1048", 
     // 🔥 onerror 이벤트 핸들러: 로드 실패 시 재시도
     imageElement.onerror = () => {
       console.warn(`⚠️ 이미지 로딩 실패, 재시도 중 (${attempt + 1}/${retries})...`);
-      
+
       attempt++;
       setTimeout(loadImage, delay); // 백오프 알고리즘 적용 (점점 대기 시간 증가)
-      
+
       // 지수 백오프 적용 (최대 64초 대기)
       delay = Math.min(delay * 2, 64000);
     };
