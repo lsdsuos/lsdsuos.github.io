@@ -18,7 +18,7 @@ jobs:
           echo "REACT_APP_SHEETS_API_KEY=${{ secrets.SHEETS_API_KEY }}" >> .env
 
       - name: 🗂 Save .env as Artifact (Downloadable)
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: env-file
           path: .env
