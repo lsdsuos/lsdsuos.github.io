@@ -6,9 +6,6 @@ export const getExcelData = async (sheetName, callback) => {
       console.error("❌ 인터넷 연결 없음");
       return;
     }
-    console.log("API_KEY, SHEET_ID")
-    console.log(API_KEY, SHEET_ID)
-    console.log("==================")
 
     // 🔥 Cloudflare Worker URL을 사용하여 API 요청
     // ✅ API 요청 URL (Cloudflare Workers)
@@ -16,7 +13,15 @@ export const getExcelData = async (sheetName, callback) => {
 
     // 🔥 Cloudflare Pages URL을 사용하여 API 요청
     // ✅ API 요청 URL (Cloudflare Pages 에서 Cloudflare worker를 호출하게 됨)
-    const url = `https://cloudflare-proxy-deo.pages.dev/api/${sheetName}`;
+    // const url = `https://cloudflare-proxy-deo.pages.dev/api/${sheetName}`;
+    // console.log("🔑 사용 중인 API_KEY, SHEET_ID:");
+    // console.log(API_KEY, SHEET_ID);
+    // console.log("==================");
+
+    // ✅ Google Sheets API 직접 호출 (Cloudflare Proxy 제거)
+    const url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${sheetName}?key=${API_KEY}`;
+
+
 
     console.log(`🚀 요청 URL: ${url}`);
 
