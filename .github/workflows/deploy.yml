@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Set-up GitHub Pages
 
 on:
   push:
@@ -17,11 +17,8 @@ jobs:
           echo "REACT_APP_SHEETS_ID=${{ secrets.SHEETS_ID }}" > .env
           echo "REACT_APP_SHEETS_API_KEY=${{ secrets.SHEETS_API_KEY }}" >> .env
 
-      - name: ⚙️ Install Dependencies
-        run: npm install
-
-      - name: 🛠 Build Project
-        run: npm run build
-
-      - name: 🚀 Deploy to GitHub Pages
-        run: npm run deploy  # gh-pages 브랜치에 dist 폴더를 배포
+      - name: 🗂 Save .env as Artifact (Downloadable)
+        uses: actions/upload-artifact@v3
+        with:
+          name: env-file
+          path: .env
