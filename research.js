@@ -355,7 +355,7 @@ eval("module.exports = __webpack_require__.p + \"images/research_3.png\";\n\n//#
 /******/ 		        // webpack-livereload-plugin
 /******/ 		        (function() {
 /******/ 		          if (typeof window === "undefined") { return };
-/******/ 		          var id = "webpack-livereload-plugin-script-bda3e84c0a9f8160";
+/******/ 		          var id = "webpack-livereload-plugin-script-2cce67addd1fb168";
 /******/ 		          if (document.getElementById(id)) { return; }
 /******/ 		          var el = document.createElement("script");
 /******/ 		          el.id = id;
@@ -451,7 +451,7 @@ eval("module.exports = __webpack_require__.p + \"images/research_3.png\";\n\n//#
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("d6afe8283618ae3c6ac7")
+/******/ 		__webpack_require__.h = () => ("a0eac8f472c7a783bcf6")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/global */
