@@ -40,6 +40,7 @@
     "webpack-livereload-plugin": "^3.0.2"
   },
   "dependencies": {
+    "dotenv": "^16.4.7",
     "lsds-web": "file:"
   }
 }

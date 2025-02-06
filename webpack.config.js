@@ -4,7 +4,8 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ImageminPlugin = require("imagemin-webpack-plugin").default;
 const LiveReloadPlugin = require("webpack-livereload-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
-const Dotenv = require('dotenv-webpack');
+const webpack = require("webpack");
+require("dotenv").config(); // .env 파일 로드
 
 module.exports = {
   entry: {
@@ -124,7 +125,10 @@ module.exports = {
         { from: "public", to: "" }, // `public/`의 모든 파일을 `dist/`로 복사
       ],
     }),
-    new Dotenv(),
+    new webpack.DefinePlugin({
+      "process.env.SHEETS_ID": JSON.stringify(process.env.SHEETS_ID),
+      "process.env.SHEETS_API_KEY": JSON.stringify(process.env.SHEETS_API_KEY),
+    }),
   ],
   devServer: {
     static: {

@@ -11,13 +11,18 @@ export const getExcelData = async (sheetName, callback) => {
 
     // 🔥 Cloudflare Pages URL을 사용하여 API 요청
     // ✅ API 요청 URL (Cloudflare Pages 에서 Cloudflare worker를 호출하게 됨)
-    const url = `https://cloudflare-proxy-deo.pages.dev/api/${sheetName}`;
-    // console.log("🔑 사용 중인 API_KEY, SHEET_ID:");
-    // console.log(API_KEY, SHEET_ID);
-    // console.log("==================");
+    // const url = `https://cloudflare-proxy-deo.pages.dev/api/${sheetName}`;
 
     // ✅ Google Sheets API 직접 호출 (Cloudflare Proxy 제거)
-    // const url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${sheetName}?key=${API_KEY}`;
+    // ✅ Webpack 환경변수에서 API Key 가져오기 (GitHub Secrets 포함)
+    const SHEET_ID = process.env.SHEETS_ID;
+    const API_KEY = process.env.SHEETS_API_KEY;
+
+    if (!SHEET_ID || !API_KEY) {
+      console.error("❌ 환경변수가 설정되지 않음!");
+      return;
+    }
+    const url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${sheetName}?key=${API_KEY}`;
 
 
 
