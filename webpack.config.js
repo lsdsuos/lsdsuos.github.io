@@ -4,6 +4,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ImageminPlugin = require("imagemin-webpack-plugin").default;
 const LiveReloadPlugin = require("webpack-livereload-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
   entry: {
@@ -123,6 +124,7 @@ module.exports = {
         { from: "public", to: "" }, // `public/`의 모든 파일을 `dist/`로 복사
       ],
     }),
+    new Dotenv(),
   ],
   devServer: {
     static: {
